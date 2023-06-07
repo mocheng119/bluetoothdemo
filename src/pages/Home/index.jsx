@@ -238,12 +238,12 @@ function Bluetooth() {
       const dataView = new DataView(buffer);
       for (let i = 0; i < str.length; i++) {
         sysInfo?.platform?.toLowerCase() === 'ios' && dataView.setUint8(i, str.charAt(i).charCodeAt());
-        // sysInfo?.platform?.toLowerCase() === 'android' && dataView.setUint8(i, str.charAt(i).charCodeAt().toString(16));
       }
 
       if (sysInfo?.platform?.toLowerCase() === 'android') {
-        buffer = stringToHex(str);
-        console.log('buffer-->', buffer);
+        buffer = str.split("")
+          .map(c => c.charCodeAt(0).toString(16).padStart(2, "0"))
+          .join("")
       }
 
       // Write buffer to printer
