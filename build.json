@@ -1,0 +1,7 @@
+{
+  "targets": [
+    "miniapp"
+  ],
+  "webpack5": true,
+  "plugins": []
+}
